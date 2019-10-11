@@ -4,7 +4,6 @@ import Smurf from "./Smurf";
 import fetchSmurfs from "../actions/index";
 
 const SmurfList = props => {
-    console.log('smurflist props',props)
     useEffect(() => {
         props.fetchSmurfs();
     }, [])
