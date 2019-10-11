@@ -1,6 +1,19 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addSmurf } from "../actions/index";
+import styled from "styled-components";
+
+const Input = styled.input`
+    margin: 1rem;
+    border: 1px solid black;
+`
+
+const Button = styled.button`
+    width: 7rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: 1px solid black;
+`
 
 const SmurfForm = props => {
     const [name, setName] = useState('');
@@ -30,10 +43,10 @@ const SmurfForm = props => {
 
     return (
         <form onSubmit={submitHandler}>
-            <input onChange={nameChangeHandler} type="text" value={name} placeholder="name"/>
-            <input onChange={ageChangeHandler} type="text" value={age} placeholder="age"/>
-            <input onChange={heightChangeHandler} type="text" value={height} placeholder="height"/>
-            <button type="submit">Add Smurf</button>
+            <Input onChange={nameChangeHandler} type="text" value={name} placeholder="name"/>
+            <Input onChange={ageChangeHandler} type="text" value={age} placeholder="age"/>
+            <Input onChange={heightChangeHandler} type="text" value={height} placeholder="height"/>
+            <Button type="submit">Add Smurf</Button>
         </form>
     )
 }
