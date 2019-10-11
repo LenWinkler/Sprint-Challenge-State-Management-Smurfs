@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addSmurf } from "../actions/index";
 
 const SmurfForm = () => {
     const [name, setName] = useState('');
@@ -15,7 +17,15 @@ const SmurfForm = () => {
 
     const heightChangeHandler = e => {
         setHeight(e.target.value)
-    }
+    };
+
+    const submitHandler = e => {
+        let newSmurf = {
+            name: name,
+            age: age,
+            height: height
+        }
+    };
 
     return (
         <form>
@@ -26,4 +36,4 @@ const SmurfForm = () => {
     )
 }
 
-export default SmurfForm;
+export default connect(null, { addSmurf })(SmurfForm);
